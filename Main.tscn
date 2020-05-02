@@ -1,58 +1,52 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/Characters/ee.png" type="Texture" id=1]
-[ext_resource path="res://assets/Characters/ff.png" type="Texture" id=2]
-[ext_resource path="res://Main.gd" type="Script" id=3]
+[ext_resource path="res://scripts/player1.gd" type="Script" id=1]
+[ext_resource path="res://assets/tilesets/Main.tres" type="TileSet" id=2]
+[ext_resource path="res://assets/characters/p1.32.png" type="Texture" id=4]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 1 )
-region = Rect2( 64, 0, 64, 128 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 1 )
-region = Rect2( 128, 0, 64, 128 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 32, 64 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 2 )
-region = Rect2( 32, 0, 32, 64 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 2 )
-region = Rect2( 64, 0, 32, 64 )
-
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
-"loop": true,
-"name": "New Anim",
-"speed": 5.0
-} ]
+[sub_resource type="RectangleShape2D" id=6]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource( 3 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -24.0
-margin_top = -18.0
-margin_right = 787.0
-margin_bottom = 469.0
+[node name="Map" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Map"]
+margin_left = -34.0
+margin_top = -33.0
+margin_right = 788.0
+margin_bottom = 489.0
+color = Color( 0.388235, 0.776471, 0.301961, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="ColorRect"]
-position = Vector2( 390.759, 204.278 )
-scale = Vector2( 5, 5 )
-frames = SubResource( 3 )
-animation = "New Anim"
-frame = 2
-playing = true
+[node name="TileMap" type="TileMap" parent="Map"]
+mode = 2
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 65537, 20, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 65556, 0, 0, 65557, 3, 0, 131073, 2, 0, 131074, 8, 0, 131075, 9, 0, 131076, 9, 0, 131077, 9, 0, 131078, 9, 0, 131079, 9, 0, 131080, 9, 0, 131081, 9, 0, 131082, 9, 0, 131083, 9, 0, 131084, 9, 0, 131085, 9, 0, 131086, 9, 0, 131087, 9, 0, 131088, 9, 0, 131089, 9, 0, 131090, 9, 0, 131091, 9, 0, 131092, 10, 0, 131093, 4, 0, 196609, 2, 0, 196610, 12, 0, 196628, 11, 0, 196629, 4, 0, 262145, 2, 0, 262146, 12, 0, 262164, 11, 0, 262165, 4, 0, 327681, 2, 0, 327682, 12, 0, 327700, 11, 0, 327701, 4, 0, 393217, 2, 0, 393218, 12, 0, 393236, 11, 0, 393237, 4, 0, 458753, 2, 0, 458754, 12, 0, 458772, 11, 0, 458773, 4, 0, 524289, 2, 0, 524290, 12, 0, 524308, 11, 0, 524309, 4, 0, 589825, 2, 0, 589826, 12, 0, 589844, 11, 0, 589845, 4, 0, 655361, 2, 0, 655362, 12, 0, 655380, 11, 0, 655381, 4, 0, 720897, 7, 0, 720898, 16, 0, 720899, 17, 0, 720900, 17, 0, 720901, 17, 0, 720902, 17, 0, 720903, 17, 0, 720904, 17, 0, 720905, 17, 0, 720906, 17, 0, 720907, 17, 0, 720908, 17, 0, 720909, 17, 0, 720910, 17, 0, 720911, 17, 0, 720912, 17, 0, 720913, 17, 0, 720914, 17, 0, 720915, 17, 0, 720916, 18, 0, 720917, 5, 0 )
+
+[node name="TileMap2" type="TileMap" parent="Map"]
+z_index = 1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 720898, 19, 0, 720899, 19, 0, 720900, 19, 0, 720901, 19, 0, 720902, 19, 0, 720903, 19, 0, 720904, 19, 0, 720905, 19, 0, 720906, 19, 0, 720907, 19, 0, 720908, 19, 0, 720909, 19, 0, 720910, 19, 0, 720911, 19, 0, 720912, 19, 0, 720913, 19, 0, 720914, 19, 0, 720915, 19, 0, 720916, 19, 0, 786434, 6, 0, 786435, 6, 0, 786436, 6, 0, 786437, 6, 0, 786438, 6, 0, 786439, 6, 0, 786440, 6, 0, 786441, 6, 0, 786442, 6, 0, 786443, 6, 0, 786444, 6, 0, 786445, 6, 0, 786446, 6, 0, 786447, 6, 0, 786448, 6, 0, 786449, 6, 0, 786450, 6, 0, 786451, 6, 0, 786452, 6, 0 )
+
+[node name="RigidBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 201.553, 180.039 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
