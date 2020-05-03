@@ -9,6 +9,7 @@ func _ready():
 func _process(delta):
 	if HP < 1:
 		dead()
+		HP = 1
 
 func dead():
 	print("Enemy is Dead")

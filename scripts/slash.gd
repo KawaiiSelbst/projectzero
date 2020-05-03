@@ -17,7 +17,6 @@ func attack():
 				$"slash_anim".flip_v = 0
 		$"slash_anim".playing = 1
 		$"slashcollide".disabled = 0
-		print(mouse_pos.angle())
 		rotation = mouse_pos.angle()
 
 
